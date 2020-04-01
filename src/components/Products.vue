@@ -6,7 +6,6 @@
           <div class="Product_image">
             <img :src="product.image" />
           </div>
-
           <h3 class="card__title">{{product.productName}}</h3>
           <p class="card__price">$ {{product.price}}</p>
           <router-link :to="'/product/' + product._id">Show More</router-link>
@@ -59,7 +58,7 @@ a {
 }
 .card__title {
   margin: 1em 0;
-  font-size: 1.5em
+  font-size: 1.5em;
 }
 .card__price {
   margin: 1em 0;
@@ -74,14 +73,14 @@ a {
   font-size: 1.5em;
   margin: 0.6em;
 }
-.card a:hover{
+.card a:hover {
   /* background: blueviolet; */
   color: rgb(122, 18, 18);
   padding: 5px 10px;
   border-radius: 10px 10px;
   font-size: 1.5em;
   margin: 0.6em;
-  border: 2px solid ;
-  background: none
+  border: 2px solid;
+  background: none;
 }
 </style>

@@ -2,8 +2,8 @@
 <template>
   <div class="Carts container">
     <h1>Carts</h1>
-    <h1 v-if="AllCarts.length >= 1">You currenly have  {{AllCarts.length}} items in your carts</h1>
-      <h1 v-else> you currenly have no item in cart </h1>
+    <h1 v-if="AllCarts.length >= 1">You currenly have {{AllCarts.length}} items in your carts</h1>
+    <h1 v-else>you currenly have no item in cart</h1>
     <div class="header Carts__grid">
       <p class="grid__Name">Name</p>
       <p class="grid__price">Price</p>
@@ -12,9 +12,7 @@
       <p class="grid__Actions">Actions</p>
     </div>
     <div v-for="carts in AllCarts" :key="carts.id" class="carts__backgroud">
- 
       <div v-for="cart in carts.products" :key="cart.id" class="Carts__Products Carts__grid">
-        
         <div class="grid__Name">{{cart.productName}}</div>
         <div class="grid__price">{{cart.price}}</div>
         <div class="grid__quantity">{{carts.quantity}}</div>
@@ -46,11 +44,10 @@ export default {
   },
   components: {},
   methods: {
-    ...mapActions(["fetchCarts", "deleteCarts"]),
-   
+    ...mapActions(["fetchCarts", "deleteCarts"])
   },
   computed: {
-    ...mapGetters(["AllCarts"]),
+    ...mapGetters(["AllCarts"])
     // ...mapActions(["fetchCarts"])
   },
   created() {

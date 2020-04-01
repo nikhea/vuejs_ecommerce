@@ -17,42 +17,36 @@
 
 
 <script>
-import {mapActions, mapMutations} from 'vuex'
+import { mapActions, mapMutations } from "vuex";
 export default {
-    name:"signIn",
-    data(){
-      return{
-         
-              name: "Fortune",
-              email:"text@text.com",
-              password: "1234",
-              nickname: '12'
-         
-      }
-    },
-      methods:{
-              SignUp: function(e) {
-            e.preventDefault()
-            const newUser ={
-             name: this.name,
-             email:this.email,
-             password: this.password,
-             nickname: this.nickname
-            }
-            // console.log(newUser)
-             this.registerSuccess(newUser)
-        },
-    ...mapActions([
-      'userLogOut', 
-      'registerSuccess', 
-      'LogInSuccess'
-      ]),
-    ...mapMutations(['setLogOut']),
-   setLogOuts(){
-      console.log(123)
-    }
+  name: "signIn",
+  data() {
+    return {
+      name: "Fortune",
+      email: "text@text.com",
+      password: "1234",
+      nickname: "12"
+    };
   },
-}
+  methods: {
+    SignUp: function(e) {
+      e.preventDefault();
+      const newUser = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        nickname: this.nickname
+      };
+      console.log(newUser)
+      this.registerSuccess(newUser);
+    },
+    ...mapActions(["userLogOut", "registerSuccess", "LogInSuccess"]),
+    ...mapMutations(["setLogOut"]),
+    setLogOuts() {
+      console.log(123);
+    }
+  }
+};
 </script>
 
 

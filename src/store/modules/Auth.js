@@ -12,7 +12,6 @@ const state = {
 };
 const getters = {
 	authState: (state) => {
-		// console.log(state)
 		return state.auth;
 	}
 };
@@ -21,14 +20,14 @@ const actions = {
 		//Request Body
 		let body = JSON.stringify({ name, email, password, nickname });
 
-		//Headers
-		// const config = {
-		// 	header: {
-		// 		'Content-type': 'application/json'
-		// 	}
-		// };
+		Headers;
+		const config = {
+			header: {
+				'Content-type': 'application/json'
+			}
+		};
 
-		axios.post(USER_URL, body);
+		axios.post(USER_URL, body, config);
 		console.log(tokenConfig).then((res) => commit('register_LogIn_Success', console.log(res))).catch((err) => {
 			console.log(err);
 		});
@@ -42,6 +41,31 @@ const actions = {
 	}
 };
 const mutations = {
+	user_loading: (state) => {
+		return {
+			...state,
+			isLoading: true
+		};
+	},
+	user_loaded: (state, res) => {
+		return {
+			...state,
+			isLoading: false,
+			isAuthenticated: true,
+			user: res
+		};
+	},
+
+	register_LogIn_Success: (state, payload) => {
+		console.log(state, payload);
+		localStorage.setItem('token', payload);
+		return {
+			...state,
+			...payload,
+			isAuthenticated: true,
+			isLoading: false
+		};
+	},
 	set_LogOut_Success: (state) => {
 		localStorage.removeItem('token');
 		return {
@@ -51,16 +75,6 @@ const mutations = {
 			isAuthenticated: false,
 			isLoading: false
 		};
-	},
-	register_LogIn_Success: (state, payload) => {
-		console.log(state, payload);
-		localStorage.setItem('token', payload);
-		// return {
-		// 	...state,
-		// 	payload,
-		// 	isAuthenticated: true,
-		// 	isLoading: false
-		// };
 	}
 };
 

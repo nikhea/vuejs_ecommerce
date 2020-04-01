@@ -35,14 +35,15 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     
-    component: () => import( '../components/Form/SignIn.vue')
+    component: () => import( '../components/Layouts/Form/SignIn.vue')
   },
 
   {
     path: '/login',
     name: 'Login',
     props: true,
-    component: () => import( '../components/Form/Login.vue')
+    component: () => import( '../components/Layouts/Form/Login.vue')
+  
   },
   {
     path: '/logout',
