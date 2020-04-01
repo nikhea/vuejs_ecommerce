@@ -13,18 +13,15 @@ const getters = {
 const actions = {
 	async fetchCarts({ commit }) {
 		const response = await axios.get(`http://localhost:2000/api/routes/carts`);
-		// console.log(response.data);
+		console.log(response.data);
+		console.log('fetchCarts')
 		commit('setCarts', response.data);
 	},
-	async fetchProduct({ commit }, id) {
-		const response = await axios.get(`http://localhost:2000/api/routes/products/${id}`);
-		// console.log(response.data)
-		commit('setProduct', response);
-	},
+
 	async addToCart({ commit }, id) {
 		const response = await axios.post(`http://localhost:2000/api/routes/carts/${id}`);
-		console.log(response.data)
-		console.log(id)
+		console.log(response.data);
+		console.log(id);
 		commit('addcart', response);
 	},
 	async deleteCarts({ commit }, _id) {
@@ -36,9 +33,12 @@ const actions = {
 };
 const mutations = {
 	setCarts: (state, carts) => (state.carts = carts),
-	setProduct: (product) => product,
-	addcart:(state, res) => [res, ...state.carts ],
-	removeCart: (state, _id) => (state.carts = state.carts.filter((cart) => cart.id !== _id))
+	// setCarts: (state, carts) => (console.log(state,carts)),
+
+	addcart: (state, res) => [res, ...state.carts],
+
+	removeCart: (state, _id) => (state.carts = state.carts.filter((cart) => cart._id !== _id))
+	// removeCart: (state, _id) => (console.log(state.cart, _id))
 };
 
 export default {
