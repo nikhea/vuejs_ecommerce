@@ -1,5 +1,5 @@
 import axios from 'axios';
-import tokenConfig from './helper/token';
+// import tokenConfig from './helper/token';
 const USER_URL = 'http://localhost:2000/api/routes/users/signup';
 
 const state = {
@@ -17,21 +17,24 @@ const getters = {
 	}
 };
 const actions = {
-	registerSuccess({ commit }, { name, email, password, nickname }) {
+  async	registerSuccess({ commit }, { name, email, password, nickname }) {
 		//Request Body
 		let body = JSON.stringify({ name, email, password, nickname });
 
 		//Headers
 		// const config = {
 		// 	header: {
-		// 		'Content-type': 'application/json'
+		// 		'Content-type': 'application/json',
+		// 		token: [ 'x-auth-token' ]
 		// 	}
 		// };
+		const config = ['x-auth-token']
 
-		axios.post(USER_URL, body);
-		console.log(tokenConfig).then((res) => commit('register_LogIn_Success', console.log(res))).catch((err) => {
-			console.log(err);
-		});
+		const res =axios.post(USER_URL, body,config);
+		// console.log(tokenConfig).then((res) => commit('register_LogIn_Success', console.log(res))).catch((err) => {
+		// 	console.log(err);
+		// });
+		commit('register_LogIn_Success', console.log(res))
 	},
 	LogInSuccess({ commit }) {
 		commit('register_LogIn_Success', 4567);

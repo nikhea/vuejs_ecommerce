@@ -1,9 +1,11 @@
 
 <template>
   <div class="Carts container">
+    <router-link class="col__3-7 link" to="/">Go back</router-link>
     <h1>Carts</h1>
-    <h1 v-if="AllCarts.length >= 1">You currenly have  {{AllCarts.length}} items in your carts</h1>
-      <h1 v-else> you currenly have no item in cart </h1>
+
+    <h1 v-if="AllCarts.length >= 1">You currenly have {{AllCarts.length}} items in your carts</h1>
+    <h1 v-else>you currenly have no item in cart</h1>
     <div class="header Carts__grid">
       <p class="grid__Name">Name</p>
       <p class="grid__price">Price</p>
@@ -12,9 +14,8 @@
       <p class="grid__Actions">Actions</p>
     </div>
     <div v-for="carts in AllCarts" :key="carts.id" class="carts__backgroud">
- 
       <div v-for="cart in carts.products" :key="cart.id" class="Carts__Products Carts__grid">
-        
+     
         <div class="grid__Name">{{cart.productName}}</div>
         <div class="grid__price">{{cart.price}}</div>
         <div class="grid__quantity">{{carts.quantity}}</div>
@@ -46,11 +47,10 @@ export default {
   },
   components: {},
   methods: {
-    ...mapActions(["fetchCarts", "deleteCarts"]),
-   
+    ...mapActions(["fetchCarts", "deleteCarts"])
   },
   computed: {
-    ...mapGetters(["AllCarts"]),
+    ...mapGetters(["AllCarts"])
     // ...mapActions(["fetchCarts"])
   },
   created() {
@@ -61,6 +61,11 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+}
+.Carts {
+  margin-bottom: 20.6em;
+
+  margin-top: 70px;
 }
 .Carts__grid {
   display: grid;
@@ -119,6 +124,19 @@ h1 {
   color: #fff;
   padding: 10px;
   /* box-shadow: 2px 3px 4px 5px; */
+  cursor: pointer;
+}
+.link {
+  padding: 5px 10px;
+  border-radius: 10px 10px;
+  font-size: 1.5em;
+  margin: 0.6em;
+  border: 2px solid rgb(158, 149, 149);
+  text-align: center;
+  color: #d88f08;
+
+  margin-top: 20px;
+  display: inline-block;
   cursor: pointer;
 }
 </style>

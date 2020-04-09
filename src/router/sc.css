@@ -1,0 +1,72 @@
+@media screen and (max-width: 674px) {
+    .header {
+     padding: 0px;
+     margin: 0px;
+    
+   
+   } 
+   .header__nav {
+     display: grid;
+     grid-template-columns: repeat(8, 1fr);
+     /* display: none */
+   }
+   .header__Brand {
+     grid-column: 1/2;
+     font-size: 1em;
+     padding-top: 5px;
+   }
+   .header__Brand a {
+     padding: 11px;
+   } 
+    .header__nav ul {
+     font-size: 0.6em;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     color: #fff;
+      /* display: none */
+      
+      
+     } 
+ 
+  
+ 
+   .navItems,li {
+     position: absolute;
+     background: #d88f08;
+     height: 100vh;
+     z-index: 1;
+     top: 2.4em;
+     opacity: 0.9;
+     /* left:  -75em; */
+      display: none
+    } 
+ 
+    
+   .header__nav li {
+     font-size: 200%;
+     padding: 15px 30px;
+     margin-top: 20px;
+   }
+   .header__nav ul li a {
+     padding: 3px 10px;
+   }
+ 
+   .toggle {
+     display: block;
+     position: fixed;
+     /* position: absolute; */
+     left: 550px;
+      /* top:  1%;  */
+     padding-top: 10px 
+   }
+   /* .toggleOpen {
+     display: block;
+     
+   } */
+   /* .toggleCloses {
+     font-size: 20px;
+     position: absolute;
+     left: 150px;
+   } */
+ }
