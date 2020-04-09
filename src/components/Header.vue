@@ -6,7 +6,16 @@
           <router-link to="/">Products</router-link>
         </div>
         <div class="toggle">
-          <div @click="navItemss = !navItemss">open</div>
+          <div @click="navItemss = !navItemss">
+            <svg viewBox="0 0 100 80" width="40" height="20" class="svg">
+              <rect width="100" height="20" />
+              <rect y="30" width="100" height="20" />
+              <rect y="60" width="100" height="20" />
+            </svg>
+
+
+
+          </div>
         </div>
         <ul :class="changeClasses">
           <li>
@@ -164,7 +173,7 @@ export default {
     grid-column: 7/10;
     font-size: 1em;
     /* padding-top: 6px; */
-    padding: 6px
+    padding: 6px;
   }
   .header__Brand a {
     padding: 7px 20px;
@@ -179,24 +188,30 @@ export default {
     /* display: none; */
   }
 
-    .header__nav li {
-     font-size: 200%;
-     padding: 15px 30px;
-     margin-top: 20px;
-   }
-   .header__nav ul li a {
-     padding: 3px 10px;
-   }
- 
+  .header__nav li {
+    font-size: 200%;
+    padding: 15px 30px;
+    margin-top: 20px;
+  }
+  .header__nav ul li a {
+    padding: 3px 10px;
+  }
+
   .toggle {
     display: block;
     position: fixed;
     left: 20px;
     top: -1%;
     padding-top: 10px;
+    color: #fff;
+    background-color: #fff
+  }
+  .svg{
+    color: #fff;
   }
 
-  .navItems,ul {
+  .navItems,
+  ul {
     position: absolute;
     background: #d88f08;
     height: 100vh;
@@ -206,7 +221,7 @@ export default {
     display: block;
   }
   .navItemss {
-    left:  -75em;
+    left: -75em;
   }
 }
 </style>
