@@ -116,7 +116,7 @@ export default {
 }
 .img__text {
   height: 80vh;
-  widows: 1110px;
+  /* widows: 1110px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

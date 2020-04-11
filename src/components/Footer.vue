@@ -33,7 +33,7 @@
     </div>-->
     <div class="row social__links">
       <ul>
-        <li>
+        <!-- <li>
           <a href="#">facebook</a>
         </li>
         <li>
@@ -41,7 +41,8 @@
         </li>
         <li>
           <a href="#">what's App</a>
-        </li>
+        </li> -->
+        <li><a href="#"><img src="../assets/img/Group 3.svg" alt="my "></a></li>
       </ul>
     </div>
     <div class="row container footer__copy">
@@ -125,7 +126,14 @@ button:hover {
   background: #d88f08;
   color: #fff;
 }
+img{
+  width: 250%;
+  color: #fff
+}
 
+img:hover{
+  /* background-color: #d88f08 */
+}
 @media screen and (max-width: 674px) {
   footer{
     /* text-align: center */
@@ -151,6 +159,10 @@ button:hover {
     font-size: 85%
   }
 
+img{
+  width: 200%;
+  color: #fff
+}
 
 }
 </style>
