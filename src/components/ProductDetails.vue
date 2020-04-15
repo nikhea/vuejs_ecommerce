@@ -114,7 +114,7 @@ a{
   margin: 0.6em;
   border: 2px solid rgb(158, 149, 149);
   text-align: center;
-  color: #d88f08;
+  color: var(--semiPrimary-color);
 
   margin-top: 20px;
   display: inline-block;

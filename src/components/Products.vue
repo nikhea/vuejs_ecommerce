@@ -4,6 +4,7 @@
     <div class="padding">
       <p>since 1997, the soucre of good and qualitiy laptops</p>
     </div>
+    <Cards/>
     <div class="container products">
       <div class="product" v-for="product in AllProducts" :key="product.id">
         <div class="card">
@@ -24,10 +25,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Landing from "./Landing";
+import Cards from './Cards'
 export default {
   name: "Products",
   components: {
-    Landing
+    Landing,
+    Cards
   },
   methods: {
     ...mapActions(["fetchProducts", "addToCart"])
@@ -57,8 +60,8 @@ a {
 }
 
 .padding {
-  /* background: rgb(192, 19, 19); */
-  background: #d88f08;
+ 
+  background: var(--semiPrimary-color);
   font-size: 30px;
   padding: 30px;
   color: #fff;
@@ -70,7 +73,6 @@ a {
 .card {
   width: 100%;
   padding: 1em;
-  /* border: 2px solid rgb(114, 8, 8); */
   box-shadow: 1px 1px 8px 0px;
   padding: 0;
   padding-bottom: 20px;
@@ -92,20 +94,18 @@ a {
 .card__price {
   margin: 1em 0;
   font-size: 1.2em;
-  /* background: gray; */
+
 }
 .card a {
-  /* background: blueviolet; */
-  /* background: rgb(122, 18, 18); */
-  background: #d88f08;
+ 
+  background: var(--semiPrimary-color);
   padding: 5px 10px;
   border-radius: 10px 10px;
   font-size: 1.5em;
   margin: 0.6em;
 }
 .card a:hover {
-  /* background: blueviolet; */
-  /* color: rgb(122, 18, 18); */
+
   color: orange;
   padding: 5px 10px;
   border-radius: 10px 10px;

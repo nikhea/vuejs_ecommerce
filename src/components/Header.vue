@@ -7,10 +7,10 @@
         </div>
         <div class="toggle">
           <div @click="navItemss = !navItemss">
-            <svg viewBox="0 0 100 80" width="40" height="20" class="svg">
-              <rect width="100" height="20" />
-              <rect y="30" width="100" height="20" />
-              <rect y="60" width="100" height="20" />
+            <svg viewBox="0 0 200 60" width="40" height="20" class="svg">
+              <rect class="rect" width="100" height="20" />
+              <rect class="rect" y="30" width="100" height="20" />
+              <rect class="rect" y="60" width="100" height="20" />
             </svg>
 
 
@@ -69,8 +69,8 @@ export default {
 
 <style scoped>
 .header {
-  /* background: rgb(192, 19, 19); */
-  background: orange;
+ 
+  background:var(--primary-color);
   box-shadow: 6px 2px 1px 1px;
   padding: 15px;
 }
@@ -83,14 +83,14 @@ export default {
   font-size: 1.8em;
   text-transform: uppercase;
   text-align: center;
-  /* padding: 10px 5px */
+ 
 }
 .header__Brand a {
   padding: 21px;
 }
 .header__Brand a:hover {
-  /* background-color: rgb(122, 18, 18); */
-  background: #d88f08;
+ 
+  background: var(--semiPrimary-color)
 }
 .header__nav ul {
   display: flex;
@@ -104,8 +104,8 @@ export default {
   padding: 26px 8px;
 }
 .header__nav ul li a:hover {
-  /* background-color: rgb(122, 18, 18); */
-  background: #d88f08;
+ 
+   background: var(--semiPrimary-color)
 }
 .img {
   position: relative;
@@ -132,8 +132,8 @@ export default {
   font-size: 1.5em;
 }
 .img__text a {
-  /* background: rgb(122, 18, 18); */
-  background: #d88f08;
+
+ background: var(--semiPrimary-color);
   padding: 5px 10px;
   border-radius: 10px 10px;
   font-size: 1em;
@@ -199,12 +199,13 @@ export default {
 
   .toggle {
     display: block;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     left: 20px;
     top: -1%;
     padding-top: 10px;
     color: #fff;
-    background-color: #fff
+    /* background-color: #fff */
   }
   .svg{
     color: #fff;
@@ -213,7 +214,7 @@ export default {
   .navItems,
   ul {
     position: absolute;
-    background: #d88f08;
+    background: var(--semiPrimary-color);
     height: 100vh;
     z-index: 1;
     top: 3.1em;
@@ -222,6 +223,9 @@ export default {
   }
   .navItemss {
     left: -75em;
+  }
+  .rect{
+    background: #fff
   }
 }
 </style>

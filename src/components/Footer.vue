@@ -115,7 +115,7 @@ input {
   font-size: 16px;
 }
 button {
-  border: 1px solid orange;
+  border: 1px solid   var(--semiPrimary-color);
   margin: 0 10px;
   padding: 5px 10px;
   /* background: orange */
@@ -123,7 +123,7 @@ button {
   background: none;
 }
 button:hover {
-  background: #d88f08;
+   background: var(--semiPrimary-color);
   color: #fff;
 }
 img{
@@ -160,7 +160,7 @@ img:hover{
   }
 
 img{
-  width: 200%;
+  width: 150%;
   color: #fff
 }
 

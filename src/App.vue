@@ -22,6 +22,11 @@ export default {
 </script>
 
 <style >
+
+:root{
+  --primary-color: orange;
+  --semiPrimary-color: #d88f08;
+}
 * {
   box-sizing: border-box;
   margin: 0;

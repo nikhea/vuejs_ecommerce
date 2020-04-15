@@ -57,7 +57,7 @@ img{
 }
 .img__text .link {
   /* background: rgb(122, 18, 18); */
-   border: 2px solid #d88f08;
+   border: 2px solid   var(--semiPrimary-color);
   padding: 10px 15px;
   border-radius: 10px 10px;
   font-size: 30px;
