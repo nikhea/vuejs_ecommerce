@@ -12,11 +12,9 @@
               <rect class="rect" y="30" width="100" height="20" />
               <rect class="rect" y="60" width="100" height="20" />
             </svg>
-
-
-
           </div>
         </div>
+
         <ul :class="changeClasses">
           <li>
             <router-link to="/cart">View cart</router-link>
@@ -38,7 +36,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from "vuex";
+import { mapActions, mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "Header",
@@ -46,7 +44,8 @@ export default {
   data() {
     return {
       available: true,
-      navItemss: true
+      navItemss: true,
+      item: " "
     };
   },
   methods: {
@@ -54,6 +53,7 @@ export default {
     ...mapMutations(["setLogOut"]),
     setLogOuts() {
       console.log(123);
+      this.navItemss = true;
     }
   },
   computed: {
@@ -61,7 +61,9 @@ export default {
       return {
         navItemss: this.navItemss
       };
-    }
+    },
+
+    ...mapGetters(["AllProducts"])
   }
 };
 </script>
@@ -69,8 +71,7 @@ export default {
 
 <style scoped>
 .header {
- 
-  background:var(--primary-color);
+  background: var(--primary-color);
   box-shadow: 6px 2px 1px 1px;
   padding: 15px;
 }
@@ -83,14 +84,12 @@ export default {
   font-size: 1.8em;
   text-transform: uppercase;
   text-align: center;
- 
 }
 .header__Brand a {
   padding: 21px;
 }
 .header__Brand a:hover {
- 
-  background: var(--semiPrimary-color)
+  background: var(--semiPrimary-color);
 }
 .header__nav ul {
   display: flex;
@@ -104,8 +103,7 @@ export default {
   padding: 26px 8px;
 }
 .header__nav ul li a:hover {
- 
-   background: var(--semiPrimary-color)
+  background: var(--semiPrimary-color);
 }
 .img {
   position: relative;
@@ -132,8 +130,7 @@ export default {
   font-size: 1.5em;
 }
 .img__text a {
-
- background: var(--semiPrimary-color);
+  background: var(--semiPrimary-color);
   padding: 5px 10px;
   border-radius: 10px 10px;
   font-size: 1em;
@@ -207,7 +204,7 @@ export default {
     color: #fff;
     /* background-color: #fff */
   }
-  .svg{
+  .svg {
     color: #fff;
   }
 
@@ -224,8 +221,8 @@ export default {
   .navItemss {
     left: -75em;
   }
-  .rect{
-    background: #fff
+  .rect {
+    background: #fff;
   }
 }
 </style>

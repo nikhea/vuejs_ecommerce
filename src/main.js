@@ -3,6 +3,19 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faJs, faVuejs } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome';
+import { faCoffee,faDesktop } from '@fortawesome/free-solid-svg-icons'
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('font-awesome-layers', FontAwesomeLayers);
+Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
+library.add(faSpinner,faCoffee, faDesktop, faJs,faVuejs);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 Vue.config.productionTip = false;
 // Vue.directive("red", {
 // 	bind(el) {

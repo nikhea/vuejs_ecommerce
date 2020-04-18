@@ -1,12 +1,16 @@
 <template>
   <div>
+    <!-- <SearchBox /> -->
+
     <Landing />
     <div class="padding">
       <p>since 1997, the soucre of good and qualitiy laptops</p>
     </div>
-    <Cards/>
+
+    <Cards />
+    <input type="text" v-model="searchProduct" />
     <div class="container products">
-      <div class="product" v-for="product in AllProducts" :key="product.id">
+      <div class="product" v-for="product in filterProducts" :key="product.id">
         <div class="card">
           <div class="Product_image">
             <img :src="product.image" />
@@ -25,18 +29,40 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Landing from "./Landing";
-import Cards from './Cards'
+import Cards from "./Cards";
+// import SearchBox from './SearchBox'
 export default {
   name: "Products",
   components: {
     Landing,
     Cards
+    // SearchBox
+  },
+  data() {
+    return {
+      searchProduct: ''
+    };
   },
   methods: {
     ...mapActions(["fetchProducts", "addToCart"])
   },
   computed: {
-    ...mapGetters(["AllProducts"])
+    ...mapGetters(["AllProducts"]),
+    filterProducts: function() {
+      if (this.searchProduct) {
+          let search = this.searchProduct.toUpperCase();
+          console.log(search)
+          return this.AllProducts.filter(AllProduct => {
+        return AllProduct.productName.toUpperCase().match(search);
+        // return AllProduct.productName.indexOf(this.searchProduct) !== -1;
+      });
+      
+      }
+      else {
+        return this.AllProducts
+      }
+    
+    }
   },
   created() {
     this.fetchProducts();
@@ -60,7 +86,6 @@ a {
 }
 
 .padding {
- 
   background: var(--semiPrimary-color);
   font-size: 30px;
   padding: 30px;
@@ -78,14 +103,13 @@ a {
   padding-bottom: 20px;
   text-align: center;
   margin-bottom: 15px;
-  transition: 2s
+  transition: 2s;
 }
 .card:hover {
   opacity: 0.7;
   transform: scale(0.9);
   /* transform: scale(1.2); */
   /* margin: 50px */
-
 }
 .card__title {
   margin: 1em 0;
@@ -94,10 +118,8 @@ a {
 .card__price {
   margin: 1em 0;
   font-size: 1.2em;
-
 }
 .card a {
- 
   background: var(--semiPrimary-color);
   padding: 5px 10px;
   border-radius: 10px 10px;
@@ -105,7 +127,6 @@ a {
   margin: 0.6em;
 }
 .card a:hover {
-
   color: orange;
   padding: 5px 10px;
   border-radius: 10px 10px;

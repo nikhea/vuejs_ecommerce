@@ -1,12 +1,22 @@
 
 <template>
   <div class="Carts container">
-    <router-link class="col__3-7 link" to="/">Go back</router-link>
-    <h1>{{Carts.toUpperCase()}}</h1>
+    <div class="Carts__header">
+      <h4>here's what you're getting!</h4>
 
-    <h1 v-if="AllCarts.length === 1">You currenly have {{AllCarts.length}} item in your carts</h1>
-     <h1 v-else-if="AllCarts.length >= 2">You currenly have {{AllCarts.length}} items in your carts</h1>
-    <h1 v-else>you currenly have no item in cart</h1>
+      <hr>
+       <router-link class="col__3-7 link" to="/">Go back</router-link>
+     
+      <!-- <h1>{{Carts.toUpperCase()}}</h1> -->
+    </div>
+
+    <div>
+      <h1 v-if="AllCarts.length === 1">You currenly have {{AllCarts.length}} item in your order</h1>
+      <h1
+        v-else-if="AllCarts.length >= 2"
+      >You currenly have {{AllCarts.length}} items in your orders</h1>
+      <h1 v-else>you currenly have no item in cart</h1>
+    </div>
     <div class="header Carts__grid">
       <p class="grid__Name">Name</p>
       <p class="grid__price">Price</p>
@@ -16,7 +26,6 @@
     </div>
     <div v-for="carts in AllCarts" :key="carts.id" class="carts__backgroud">
       <div v-for="cart in carts.products" :key="cart.id" class="Carts__Products Carts__grid">
-     
         <div class="grid__Name">{{cart.productName}}</div>
         <div class="grid__price">{{cart.price}}</div>
         <div class="grid__quantity">{{carts.quantity}}</div>
@@ -44,7 +53,8 @@ export default {
       name: "",
       price: "",
       subTotal: "",
-      Carts: 'Carts'
+      Carts: "Carts"
+      // AllCart: false
     };
   },
   components: {},
@@ -63,7 +73,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 .Carts {
   margin-bottom: 20.6em;
@@ -74,6 +84,16 @@ h1 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   text-align: center;
+}
+.Carts__header{
+   margin: 3em 0em;
+   
+}
+.Carts__header h4{
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: normal;
+  text-transform: capitalize;
 }
 .header {
   text-transform: uppercase;
@@ -113,12 +133,11 @@ h1 {
 }
 .Carts__Products:nth-child(odd) {
   background: rgb(165, 159, 159);
-  padding: 20px
+  padding: 20px;
 }
 .Blue {
   background: blue;
 }
-
 
 .Red {
   background: red;
@@ -143,24 +162,49 @@ h1 {
   margin: 0.6em;
   border: 2px solid rgb(158, 149, 149);
   text-align: center;
-   color: var(--semiPrimary-color);
+  color: var(--semiPrimary-color);
 
-  margin-top: 20px;
+  margin-top: 30px;
   display: inline-block;
   cursor: pointer;
 }
 @media screen and (max-width: 950px) {
-.Carts{
-width: 80%;
+  .Carts {
+    width: 80%;
+  }
+  .Carts__grid p,
+  div {
+    font-size: 10px;
+  }
+  .grid__Actions > span {
+    /* background-color: blue */
 
+    font-size: 10px;
+  }
 }
-.Carts__grid p, div{
-  font-size: 10px
-}
-.grid__Actions > span{
-  /* background-color: blue */
 
-  font-size: 10px
-}
+@media screen and (max-width: 600px){
+  *{
+    /* width: 50vh; */
+  }
+ .Carts__grid > p,div{
+   /* font-size: 10px */
+ }
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/vue-fontawesome

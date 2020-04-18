@@ -75,7 +75,7 @@ export default {
 }
 form {
   margin: 20px;
-  background: orange;
+   background: var(--primary-color);
   padding: 70px;
   border-radius: 50px;
   box-shadow: 1px 2px 8px 2px;
@@ -104,7 +104,7 @@ button {
   font-size: 19px;
 }
 button:hover {
-  background: #d88f08;
+   background: var(--semiPrimary-color);
   color: #fff;
 }
 h4,
@@ -123,7 +123,7 @@ a {
 }
 form {
   margin: 20px;
-  background: orange;
+   background: var(--primary-color);
   padding: 20px;
   border-radius: 20px;
   box-shadow: 1px 2px 8px 2px;
@@ -152,7 +152,7 @@ button {
   font-size: 19px;
 }
 button:hover {
-  background: #d88f08;
+  background: var(--semiPrimary-color);
   color: #fff;
 }
 }
