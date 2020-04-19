@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+// import vuetify from '@/plugins/vuetify' // path to vuetify export
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faJs, faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome';
 import { faCoffee,faDesktop } from '@fortawesome/free-solid-svg-icons'
+import './registerServiceWorker'
+import vuetify from './plugins/vuetify';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
@@ -35,7 +38,8 @@ Vue.directive('red', {
 	}
 });
 new Vue({
-	router,
-	store,
-	render: (h) => h(App)
+    router,
+    store,
+    vuetify,
+    render: (h) => h(App)
 }).$mount('#app');

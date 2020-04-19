@@ -34,6 +34,9 @@
           <span @click="carts.quantity++" class="Blue text_color">+</span>
           <span @click="deleteCarts(carts._id)" class="Black text_color">Clear</span>
           <span @click="carts.quantity--" class="Red text_color">-</span>
+          <!-- <v-btn color="black">
+            <span @click="carts.quantity--" class=" text_color">-</span>
+          </v-btn> -->
         </div>
       </div>
     </div>

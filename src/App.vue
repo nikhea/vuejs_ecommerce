@@ -1,3 +1,5 @@
+
+  
 <template>
   <div id="app">
     <Header />
@@ -22,15 +24,15 @@ export default {
 </script>
 
 <style >
-
 :root{
-  --primary-color: orange;
-  --semiPrimary-color: #d88f08;
+  --primary-color:orange;
+  --semiPrimary-color: orange;
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+ 
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -42,7 +44,6 @@ a {
   text-decoration: none;
   color: #fff;
 }
-
 .container {
   width: 80%;
   margin: 0 auto;
@@ -50,7 +51,5 @@ a {
 img {
   width: 100%;
 }
-
-
 
 </style>

@@ -75,7 +75,7 @@ export default {
 }
 form {
   margin: 20px;
-   background: var(--primary-color);
+  background: orange;
   padding: 70px;
   border-radius: 50px;
   box-shadow: 1px 2px 8px 2px;
@@ -83,6 +83,7 @@ form {
 .form-group {
   display: flex;
   flex-direction: column;
+     
 }
 label {
   text-align: center;
@@ -97,6 +98,9 @@ input {
   outline: none;
   font-size: 16px;
 }
+input, button{
+      background: #fff;
+}
 button {
   margin: 20px 0px;
   padding: 8px;
@@ -104,7 +108,7 @@ button {
   font-size: 19px;
 }
 button:hover {
-   background: var(--semiPrimary-color);
+  background: #d88f08;
   color: #fff;
 }
 h4,
@@ -123,7 +127,7 @@ a {
 }
 form {
   margin: 20px;
-   background: var(--primary-color);
+  background: orange;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 1px 2px 8px 2px;
@@ -152,7 +156,7 @@ button {
   font-size: 19px;
 }
 button:hover {
-  background: var(--semiPrimary-color);
+  background: #d88f08;
   color: #fff;
 }
 }

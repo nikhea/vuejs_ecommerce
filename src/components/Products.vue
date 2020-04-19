@@ -7,7 +7,7 @@
       <p>since 1997, the soucre of good and qualitiy laptops</p>
     </div>
 
-    <Cards />
+    <!-- <Cards /> -->
     <input type="text" v-model="searchProduct" />
     <div class="container products">
       <div class="product" v-for="product in filterProducts" :key="product.id">
@@ -29,13 +29,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Landing from "./Landing";
-import Cards from "./Cards";
+// import Cards from "./Cards";
 // import SearchBox from './SearchBox'
 export default {
   name: "Products",
   components: {
     Landing,
-    Cards
+    // Cards
     // SearchBox
   },
   data() {
