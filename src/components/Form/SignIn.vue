@@ -5,22 +5,22 @@
       <form @submit="SignUp">
         <div class="form-group">
           <label for>Name</label>
-          <input type="text" v-model="name" placeholder="name" required />
+          <input type="text" v-model="name" placeholder="Full Name" required />
         </div>
 
         <div class="form-group">
           <label for>Email</label>
-          <input type="email" v-model="email" placeholder="email" required />
+          <input type="email" v-model="email" placeholder="Email" required />
         </div>
 
         <div class="form-group">
           <label for>Password</label>
-          <input type="password" v-model="password" placeholder="password" required />
+          <input type="password" v-model="password" placeholder="Password" required />
         </div>
 
         <div class="form-group">
           <label for>Nickname</label>
-          <input type="text" v-model="nickname" placeholder="nickname" required />
+          <input type="text" v-model="nickname" placeholder="Nickname" required />
         </div>
         <div class="form-group">
           <!-- <input type="submit" placeholder="sign in" /> -->
@@ -42,6 +42,11 @@ export default {
   name: "signIn",
   data() {
     return {
+      // name: "",
+      // email: "",
+      // password: "",
+      // nickname: ""
+
       name: "Fortune",
       email: "text@text.com",
       password: "1234",
@@ -59,6 +64,10 @@ export default {
       };
       // console.log(newUser)
       this.registerSuccess(newUser);
+      // (this.name = ""),
+      //   (this.email = ""),
+      //   (this.password = ""),
+      //   (this.nickname = "");
     },
     ...mapActions(["userLogOut", "registerSuccess", "LogInSuccess"]),
     ...mapMutations(["setLogOut"]),
@@ -91,7 +100,6 @@ form {
 .form-group {
   display: flex;
   flex-direction: column;
-  
 }
 label {
   text-align: center;
@@ -105,10 +113,10 @@ input {
   border: none;
   outline: none;
   font-size: 16px;
-  
 }
-input, button{
-      background: #fff;
+input,
+button {
+  background: #fff;
 }
 button {
   margin: 20px 0px;
@@ -159,9 +167,10 @@ a {
     outline: none;
     font-size: 16px;
   }
-  input, button{
-      background: #fff;
-}
+  input,
+  button {
+    background: #fff;
+  }
   button {
     margin: 20px 0px;
     padding: 8px;

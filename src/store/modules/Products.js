@@ -14,13 +14,13 @@ const actions = {
      
     async fetchProducts({ commit }) {
         const response = await axios.get(`http://localhost:2000/api/routes/products`)
-        // console.log(response.data)
+        // console.log(response)
         commit('setProducts', response.data)
          
     },
     async fetchProduct({ commit }, id) {
         const response = await axios.get(`http://localhost:2000/api/routes/products/${id}`)
-        console.log(response.data)
+        // console.log(response.data)
         commit('setProduct', response)
     }
 }

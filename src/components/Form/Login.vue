@@ -2,25 +2,25 @@
   <div class="form">
     <h2>Log In</h2>
     <form @submit="Login">
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for>Name</label>
         <input type="text" v-model="name" placeholder="name" required />
-      </div>
+      </div> -->
 
       <div class="form-group">
         <label for>Email</label>
-        <input type="email" v-model="email" placeholder="email" required />
+        <input type="email" v-model="form.email" placeholder="email" required />
       </div>
 
       <div class="form-group">
         <label for>Password</label>
-        <input type="password" v-model="password" placeholder="password" required />
+        <input type="password" v-model="form.password" placeholder="password" required />
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for>Nickname</label>
         <input type="text" v-model="nickname" placeholder="nickname" required />
-      </div>
+      </div> -->
       <div class="form-group">
         <button>Log In</button>
       </div>
@@ -40,17 +40,21 @@ export default {
   data() {
     return {
       form: {
-        name: "Fortune",
+        // name: "Fortune",
         email: "text@text.com",
         password: "1234",
-        nickname: "Nikhea"
+        // nickname: "Nikhea"
       }
     };
   },
   methods: {
     Login: function(e) {
       e.preventDefault();
-      //  this.LogInSuccess()
+      const user = {
+        email: this.form.email,
+        password: this.form.password
+      }
+       this.LogInSuccess(user)
     },
     ...mapActions(["userLogOut", "registerSuccess", "LogInSuccess"]),
     ...mapMutations(["setLogOut"]),

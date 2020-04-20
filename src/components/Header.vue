@@ -74,6 +74,7 @@ export default {
   background: var(--primary-color);
   box-shadow: 6px 2px 1px 1px;
   padding: 15px;
+  touch-action: double-tap-zoom;
 }
 .header__nav {
   display: grid;
@@ -90,6 +91,7 @@ export default {
 }
 .header__Brand a:hover {
   background: var(--semiPrimary-color);
+  /* color: rgb(0, 60, 255); */
 }
 .header__nav ul {
   display: flex;
@@ -213,6 +215,8 @@ export default {
     position: absolute;
     background: var(--semiPrimary-color);
     height: 100vh;
+    /* height: 51vh; */
+
     z-index: 1;
     top: 3.1em;
     opacity: 0.9;

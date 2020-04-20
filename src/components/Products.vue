@@ -103,13 +103,14 @@ a {
   padding-bottom: 20px;
   text-align: center;
   margin-bottom: 15px;
-  transition: 2s;
+  transition: 2s ;
 }
 .card:hover {
-  opacity: 0.7;
+  opacity: 0.8;
   transform: scale(0.9);
   /* transform: scale(1.2); */
-  /* margin: 50px */
+  margin: 10px 0px;
+  /* border-radius: 30px 30px;  */
 }
 .card__title {
   margin: 1em 0;
@@ -151,6 +152,7 @@ a {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 1rem;
+    position: relative;
   }
   .Product_image {
   }
@@ -160,6 +162,10 @@ a {
     padding: 0;
     padding-bottom: 20px;
     text-align: center;
+    position: relative;
+    top: 2.5em;
+
+    
   }
   .card__text {
   }
@@ -194,6 +200,8 @@ a {
     text-align: center;
     font-weight: normal;
     font-size: 17px;
+ 
+    
   }
 }
 </style>

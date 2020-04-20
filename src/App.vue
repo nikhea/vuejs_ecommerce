@@ -13,12 +13,19 @@
 
 <script>
 import Header from "./components/Header";
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import {mapActions} from  'vuex'
 export default {
   name: "App",
   components: {
     Header,
     Footer
+  },
+  methods:{
+    ...mapActions(['LoadUser'])
+  },
+  created(){
+     this.LoadUser()
   }
 };
 </script>
@@ -26,7 +33,7 @@ export default {
 <style >
 :root{
   --primary-color:orange;
-  --semiPrimary-color: orange;
+  --semiPrimary-color: #da930f;
 }
 * {
   box-sizing: border-box;
