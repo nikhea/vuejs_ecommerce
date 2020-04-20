@@ -14,7 +14,7 @@ const actions = {
 	async fetchCarts({ commit }) {
 		const response = await axios.get(`http://localhost:2000/api/routes/carts`);
 		console.log(response.data);
-		console.log('fetchCarts')
+		console.log('fetchCarts');
 		commit('setCarts', response.data);
 	},
 
@@ -35,7 +35,7 @@ const mutations = {
 	setCarts: (state, carts) => (state.carts = carts),
 	// setCarts: (state, carts) => (console.log(state,carts)),
 
-	addcart: (state, res) => [res, ...state.carts],
+	addcart: (state, res) => [ res, ...state.carts ],
 
 	removeCart: (state, _id) => (state.carts = state.carts.filter((cart) => cart._id !== _id))
 	// removeCart: (state, _id) => (console.log(state.cart, _id))

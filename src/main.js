@@ -7,16 +7,16 @@ import store from './store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faJs, faVuejs } from '@fortawesome/free-brands-svg-icons';
+import { faJs, faVuejs,  } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome';
-import { faCoffee,faDesktop } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee,faDesktop, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './registerServiceWorker'
 import vuetify from './plugins/vuetify';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
-library.add(faSpinner,faCoffee, faDesktop, faJs,faVuejs);
+library.add(faSpinner,faCoffee, faDesktop, faJs,faVuejs, faShoppingCart);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

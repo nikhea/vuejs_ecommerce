@@ -26,6 +26,7 @@
     </div>
     <div v-for="carts in AllCarts" :key="carts.id" class="carts__backgroud">
       <div v-for="cart in carts.products" :key="cart.id" class="Carts__Products Carts__grid">
+       <!-- <div><img :src="cart.image" alt="cart._id"/> </div> -->
         <div class="grid__Name">{{cart.productName}}</div>
         <div class="grid__price">{{cart.price}}</div>
         <div class="grid__quantity">{{carts.quantity}}</div>

@@ -17,10 +17,6 @@
 
         <ul :class="changeClasses">
           <li>
-            <router-link to="/cart">View cart</router-link>
-          </li>
-
-          <li>
             <router-link to="/signin">Sign Up</router-link>
           </li>
           <li>
@@ -28,6 +24,15 @@
           </li>
           <li @click="userLogOut">
             <router-link to="/logout">Log Out</router-link>
+          </li>
+            <li>
+            <!-- <router-link to="/cart">View cart</router-link> -->
+            <div class="cart-icon">
+              <router-link to="/cart">
+                <font-awesome-icon icon="shopping-cart" />
+              </router-link>
+            </div>
+            <!-- <font-awesome-icon icon="shopping-cart"/> -->
           </li>
         </ul>
       </nav>
@@ -81,7 +86,7 @@ export default {
   grid-template-columns: repeat(12, 1fr);
 }
 .header__Brand {
-  grid-column: 3/5;
+  grid-column: 1/5;
   font-size: 1.8em;
   text-transform: uppercase;
   text-align: center;
@@ -102,13 +107,31 @@ export default {
   padding: 10px;
 }
 .header__nav ul li a {
-  padding: 26px 8px;
+  padding: 26px 30px;
 }
 .header__nav ul li a:hover {
   background: var(--semiPrimary-color);
 }
+.cart-icon {
+  position: relative;
+  bottom: 2px;
+  font-size: 17px;
+  /* height: 10vh; */
+
+  /* flex-basis: 25% !important; */
+  height: 18px !important;
+}
+.header__Brand > ul li .cart-icon {
+  padding: 1px 30px;
+}
+.header__nav > ul li .cart-icon :hover {
+  /* background: var(--semiPrimary-color); */
+  color: rgb(202, 59, 59);
+}
+
 .img {
   position: relative;
+  z-index: -1;
   height: 100vh;
   background-attachment: fixed;
   background: linear-gradient(rgba(4, 4, 4, 0.5), rgba(4, 4, 4, 0.5)),
