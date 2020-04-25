@@ -16,24 +16,39 @@
         </div>
 
         <ul :class="changeClasses">
-          <li>
-            <router-link to="/signin">Sign Up</router-link>
-          </li>
-          <li>
-            <router-link to="/login">Log In</router-link>
-          </li>
-          <li @click="userLogOut">
-            <router-link to="/logout">Log Out</router-link>
-          </li>
+          <span
+            class="inline"
+            v-if="authState.isAuthenticated === null || authState.isAuthenticated === false"
+          >
             <li>
-            <!-- <router-link to="/cart">View cart</router-link> -->
-            <div class="cart-icon">
-              <router-link to="/cart">
-                <font-awesome-icon icon="shopping-cart" />
-              </router-link>
-            </div>
-            <!-- <font-awesome-icon icon="shopping-cart"/> -->
-          </li>
+              <router-link to="/signin">Sign Up</router-link>
+            </li>
+            <li>
+              <router-link to="/login">Log In</router-link>
+            </li>
+          </span>
+          <span
+            class="inline"
+            v-else-if="authState.isAuthenticated !== null || authState.isAuthenticated !== false"
+          >
+            <span class="auth-name">
+              <!-- <li> -->
+              <p>Welcome {{authState.user.name.toUpperCase()}}</p>
+              <!-- </li> -->
+            </span>
+
+            <li>
+              <div class="cart-icon">
+                <router-link to="/cart">
+                  <font-awesome-icon icon="shopping-cart" />
+                  <span class="cart_length">{{AllCarts.length}}</span>
+                </router-link>
+              </div>
+            </li>
+            <li @click="userLogOut">
+              <router-link to="/logout">Log Out</router-link>
+            </li>
+          </span>
         </ul>
       </nav>
     </header>
@@ -41,7 +56,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Header",
@@ -49,26 +64,28 @@ export default {
   data() {
     return {
       available: true,
-      navItemss: true,
+      navItemss: false,
       item: " "
     };
   },
   methods: {
-    ...mapActions(["userLogOut", "registerSuccess", "LogInSuccess"]),
-    ...mapMutations(["setLogOut"]),
-    setLogOuts() {
-      console.log(123);
-      this.navItemss = true;
-    }
+    ...mapActions([
+      "userLogOut",
+      "registerSuccess",
+      "LogInSuccess",
+      "fetchCarts"
+    ])
   },
   computed: {
+    ...mapGetters(["authState", "AllCarts"]),
     changeClasses: function() {
       return {
         navItemss: this.navItemss
       };
-    },
-
-    ...mapGetters(["AllProducts"])
+    }
+  },
+  created() {
+    this.fetchCarts();
   }
 };
 </script>
@@ -101,7 +118,7 @@ export default {
 .header__nav ul {
   display: flex;
   justify-content: space-between;
-  grid-column: 8/12;
+  grid-column: 9/13;
   /* font-size: 1.3em; */
   text-transform: capitalize;
   padding: 10px;
@@ -128,7 +145,15 @@ export default {
   /* background: var(--semiPrimary-color); */
   color: rgb(202, 59, 59);
 }
-
+.inline {
+  display: inline-flex;
+}
+.auth-name {
+  /* margin: 6em 0em; */
+  /* font-size: 12px; */
+  font-weight: bolder;
+  /* color: #fff */
+}
 .img {
   position: relative;
   z-index: -1;
@@ -164,6 +189,12 @@ export default {
 .toggle {
   display: none;
 }
+.cart_length {
+  position: absolute;
+  font-size: 1em;
+  left: 48px;
+  top: 7px;
+}
 @media screen and (max-width: 900px) {
   .header {
     padding: 0px;
@@ -188,6 +219,11 @@ export default {
   .header__nav ul li a {
     padding: 11px 5px;
   }
+  .auth-name {
+    /* margin: 6em 0em; */
+    font-size: 12px;
+    font-weight: bolder;
+  }
 }
 
 @media screen and (max-width: 674px) {
@@ -206,7 +242,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #fff;
+    /* color: #fff; */
     /* display: none; */
   }
 
@@ -218,7 +254,9 @@ export default {
   .header__nav ul li a {
     padding: 3px 10px;
   }
-
+  .inline {
+    display: inline;
+  }
   .toggle {
     display: block;
     /* position: fixed; */
@@ -227,7 +265,14 @@ export default {
     top: -1%;
     padding-top: 10px;
     color: #fff;
+    cursor: pointer;
+    
     /* background-color: #fff */
+  }
+  .auth-name {
+    margin: 6em 0em;
+    font-size: 12px;
+    font-weight: bolder;
   }
   .svg {
     color: #fff;
@@ -239,17 +284,67 @@ export default {
     background: var(--semiPrimary-color);
     height: 100vh;
     /* height: 51vh; */
-
+  left: -75em;
     z-index: 1;
     top: 3.1em;
     opacity: 0.9;
     display: block;
+    /* animation: fadeIn 1.5s  ease-out  forwards ; */
+    /* animation: fadeOut 2s  ease-in-out 1s; */
+    animation: fadeOut 1.5s   ease-in-out forwards ;
   }
   .navItemss {
-    left: -75em;
+    /* left: -75em; */
+    
+    /* animation: fadeOut 1.5s   ease-in-out forwards ; */
+      animation: fadeIn 1.5s  ease-out  forwards ;
   }
   .rect {
     background: #fff;
   }
+  @keyframes fadeIn {
+    5% {
+      left: -75em;
+    }
+    100% {
+      left: -0em;
+      display: block;
+    }
+  }
+  @keyframes fadeOut {
+    0%{
+      left: -0em;
+    }
+   
+    /* 100% {
+     left: -75em;
+    } */
+  }
+
+
+
+
+
+
+
+
+
+    /* @keyframes fadeIn {
+    5% {
+      left: -75em;
+   } 
+    100% {
+      left: -0em;
+    }
+  }
+  @keyframes fadeOut {
+    0%{
+      left: -0em;
+    }
+   
+    100% {
+     left: -75em;
+    }
+  } */
 }
 </style>

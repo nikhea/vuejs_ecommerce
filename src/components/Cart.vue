@@ -5,7 +5,10 @@
       <h4>here's what you're getting!</h4>
 
       <hr>
-       <router-link class="col__3-7 link" to="/">Go back</router-link>
+      <div class="rout__flex">
+          <router-link class="col__3-7 link" to="/">Go back</router-link>
+     <router-link class="col__7-12 link" to="/shoppingList">shoppingList</router-link>
+      </div>
      
       <!-- <h1>{{Carts.toUpperCase()}}</h1> -->
     </div>
@@ -125,6 +128,10 @@ h1 {
 }
 .grid__Actions span {
   margin: 12px;
+}
+.rout__flex{
+  display: flex;
+  justify-content: space-between
 }
 .Carts__quantity {
 }

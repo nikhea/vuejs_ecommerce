@@ -4,6 +4,7 @@ import Products from './modules/Products';
 import Auth from './modules/Auth';
 import Carts from './modules/Carts';
 import Error from './modules/Error'
+import ShoppingList from './modules/ShoppingList'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -13,7 +14,8 @@ export default new Vuex.Store({
 	modules: {
 		Products,
 		Carts,
-		Auth,
-		Error
+		Error,
+		ShoppingList,
+		Auth
 	}
 });

@@ -51,6 +51,13 @@ const routes = [
     // component: () => import('../components/Form/Login.vue')
     component: () => import('../components/Products.vue')
   },
+  {
+    path: '/shoppingList',
+    name: 'shoppingList',
+    props: true,
+    // component: () => import('../components/Form/Login.vue')
+    component: () => import('../components/ShoppingList.vue')
+  },
 ]
 
 const router = new VueRouter({

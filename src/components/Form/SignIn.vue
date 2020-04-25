@@ -28,7 +28,7 @@
         </div>
       </form>
       <h4>
-        <router-link to="/login">already have an account</router-link>
+        <router-link to="/login">  already have an account</router-link>
       </h4>
     </div>
   </div>
@@ -50,7 +50,8 @@ export default {
       name: "Fortune",
       email: "text@text.com",
       password: "1234",
-      nickname: "12"
+      nickname: "12",
+      msg: ""
     };
   },
   methods: {

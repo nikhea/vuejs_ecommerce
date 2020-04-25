@@ -1,14 +1,18 @@
 <template>
   <div>
-    <!-- <SearchBox /> -->
+    <SearchBox v-model="searchProduct" />
 
     <Landing />
     <div class="padding">
       <p>since 1997, the soucre of good and qualitiy laptops</p>
     </div>
 
-    <!-- <Cards /> -->
-    <input type="text" v-model="searchProduct" />
+    <Cards />
+    <div class="search__product container">
+      <input type="text" v-model="searchProduct" placeholder="Search for  Product" />
+     
+    </div>
+   
     <div class="container products">
       <div class="product" v-for="product in filterProducts" :key="product.id">
         <div class="card">
@@ -22,6 +26,7 @@
             <a class="product__add" @click="addToCart(product._id)">Add To Cart</a>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -34,13 +39,14 @@ import Landing from "./Landing";
 export default {
   name: "Products",
   components: {
-    Landing,
+    Landing
     // Cards
     // SearchBox
   },
   data() {
     return {
-      searchProduct: ''
+      searchProduct: "",
+      IfProduct: ""
     };
   },
   methods: {
@@ -50,18 +56,15 @@ export default {
     ...mapGetters(["AllProducts"]),
     filterProducts: function() {
       if (this.searchProduct) {
-          let search = this.searchProduct.toUpperCase();
-          console.log(search)
-          return this.AllProducts.filter(AllProduct => {
-        return AllProduct.productName.toUpperCase().match(search);
-        // return AllProduct.productName.indexOf(this.searchProduct) !== -1;
-      });
-      
+        let search = this.searchProduct.toUpperCase();
+        console.log(search);
+        return this.AllProducts.filter(AllProduct => {
+          return AllProduct.productName.toUpperCase().match(search);
+          // return AllProduct.productName.indexOf(this.searchProduct) !== -1;
+        });
+      } else {
+        return this.AllProducts;
       }
-      else {
-        return this.AllProducts
-      }
-    
     }
   },
   created() {
@@ -103,7 +106,7 @@ a {
   padding-bottom: 20px;
   text-align: center;
   margin-bottom: 15px;
-  transition: 2s ;
+  transition: 2s;
 }
 .card:hover {
   opacity: 0.8;
@@ -136,6 +139,27 @@ a {
   border: 2px solid;
   background: none;
 }
+.search__product {
+  /* background: blue; */
+  display: block;
+  /* margin: 0 auto; */
+  margin: 4em auto;
+  margin-right: 20em;
+  width: 100vh;
+  /* margin-top: 4em; */
+  
+}
+.search__product > input {
+  width: 40vw;
+
+  border-bottom: 1px solid rgb(77, 74, 74);
+}
+.search__product > input:focus {
+  width: 40vw;
+
+  border-bottom: 3px solid rgb(77, 74, 74);
+}
+
 /* .padding {
   background: rgb(192, 19, 19);
   width: 100vw;
@@ -164,8 +188,6 @@ a {
     text-align: center;
     position: relative;
     top: 2.5em;
-
-    
   }
   .card__text {
   }
@@ -200,8 +222,6 @@ a {
     text-align: center;
     font-weight: normal;
     font-size: 17px;
- 
-    
   }
 }
 </style>

@@ -2,11 +2,6 @@
   <div class="form">
     <h2>Log In</h2>
     <form @submit="Login">
-      <!-- <div class="form-group">
-        <label for>Name</label>
-        <input type="text" v-model="name" placeholder="name" required />
-      </div> -->
-
       <div class="form-group">
         <label for>Email</label>
         <input type="email" v-model="form.email" placeholder="email" required />
@@ -17,10 +12,6 @@
         <input type="password" v-model="form.password" placeholder="password" required />
       </div>
 
-      <!-- <div class="form-group">
-        <label for>Nickname</label>
-        <input type="text" v-model="nickname" placeholder="nickname" required />
-      </div> -->
       <div class="form-group">
         <button>Log In</button>
       </div>
@@ -34,33 +25,49 @@
 
 
 <script>
-import { mapActions, mapMutations } from "vuex";
+import { mapActions, mapMutations,mapGetters } from "vuex";
 export default {
   name: "LogIn",
   data() {
     return {
       form: {
-        // name: "Fortune",
+        name: "Fortune",
         email: "text@text.com",
         password: "1234",
-        // nickname: "Nikhea"
-      }
+        nickname: "Nikhea"
+      },
+      msg: ""
     };
   },
   methods: {
+    ...mapActions([
+      "userLogOut",
+      "registerSuccess",
+      "LogInSuccess",
+      "LoadUser"
+    ]),
+    ...mapMutations(["setLogOut"]),
     Login: function(e) {
       e.preventDefault();
       const user = {
         email: this.form.email,
         password: this.form.password
-      }
-       this.LogInSuccess(user)
+      };
+      this.LogInSuccess(user);
     },
-    ...mapActions(["userLogOut", "registerSuccess", "LogInSuccess"]),
-    ...mapMutations(["setLogOut"]),
+
     setLogOuts() {
       console.log(123);
+      console.log(this.authState)
     }
+  },
+  computed: {
+    ...mapGetters(["authState"])
+  },
+  created() {
+    
+ 
+    
   }
 };
 </script>
@@ -87,7 +94,6 @@ form {
 .form-group {
   display: flex;
   flex-direction: column;
-     
 }
 label {
   text-align: center;
@@ -102,8 +108,9 @@ input {
   outline: none;
   font-size: 16px;
 }
-input, button{
-      background: #fff;
+input,
+button {
+  background: #fff;
 }
 button {
   margin: 20px 0px;
@@ -120,48 +127,48 @@ a {
   color: blue;
 }
 @media screen and (max-width: 674px) {
-.form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  /* width: 20vw */
-}
-form {
-  margin: 20px;
-  background: orange;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 1px 2px 8px 2px;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-label {
-  text-align: center;
-  margin-top: 13px;
-}
-input {
-  margin: 5px 0px;
-  padding: 7px;
-  padding-right: 70px;
-  
-  border: none;
-  outline: none;
-  font-size: 16px;
-}
-button {
-  margin: 20px 0px;
-  padding: 8px;
-  border: none;
-  font-size: 19px;
-}
-button:hover {
-  background: #d88f08;
-  color: #fff;
-}
+  .form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    /* width: 20vw */
+  }
+  form {
+    margin: 20px;
+    background: orange;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 8px 2px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    text-align: center;
+    margin-top: 13px;
+  }
+  input {
+    margin: 5px 0px;
+    padding: 7px;
+    padding-right: 70px;
+
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  button {
+    margin: 20px 0px;
+    padding: 8px;
+    border: none;
+    font-size: 19px;
+  }
+  button:hover {
+    background: #d88f08;
+    color: #fff;
+  }
 }
 </style>
