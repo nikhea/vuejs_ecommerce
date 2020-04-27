@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="shoppinglist_header">ShoppingLists {{name}} </h1>
+      <h1 class="shoppinglist_header">ShoppingLists</h1>
       <div class="rout__flex">
         <button class="add-list" to="#" @click="model = !model, mbb = !mbb">Add to list</button>
         <router-link class="col__3-7 link" to="/cart">Go back</router-link>
       </div>
+      
  
       <div class="move_form" :class="changeClasses">
         <form @submit="addList">
-          <!-- <input type="text" v-model="name" placeholder="add to list"/> -->
-          <textarea v-model="name" placeholder="add to list"></textarea>
+          <textarea v-model="name" placeholder="add to list" required></textarea>
           <button class="button">add</button>
         </form>
       </div>
@@ -18,7 +18,7 @@
       <div class="mb">
         <div class="items" v-for="item in AllShoppingLists" :key="item._id">
           <div class="item">
-            <div class="item__name">{{item.name}} || {{item._id}}</div>
+            <div class="item__name">{{item.name}}</div>
 
             <div class="fonts">
               <!-- <div class="checkbox">
@@ -49,21 +49,22 @@ export default {
   name: "ShoppingList",
   data() {
     return {
-      model: true
-      // mbb: false
+      model: true,
+      mbb: false,
+      name:''
     };
   },
   methods: {
     ...mapActions(["fetchShoppingLists", "deletedShoppingList", "addShoppingList"]),
-    // ...mapGetters(["AllShoppingList"])
     addList: function(e) {
       e.preventDefault();
-      const newlist = {
-        name: this.name
-      };
-      // console.log(newUser)
-      this.addShoppingList(newlist);
-      // (this.name = ""),
+      if (this.name === '' || this.name === undefined || this.name === null) {
+          alert('can not be empty')
+      } else {
+           this.addShoppingList(this.name);
+      (this.name = "")
+      }
+   
      
     },
   },
@@ -182,8 +183,8 @@ export default {
   padding: 20px;
   width: 50vh;
   height: 40vh;
-  border-radius: 50px;
-  box-shadow: 1px 2px 8px 2px;
+  border-radius: 20px;
+  /* box-shadow: 1px 2px 8px 2px; */
 }
 form > * {
   display: block;

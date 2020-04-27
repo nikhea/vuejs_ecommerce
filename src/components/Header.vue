@@ -266,7 +266,7 @@ export default {
     padding-top: 10px;
     color: #fff;
     cursor: pointer;
-    
+
     /* background-color: #fff */
   }
   .auth-name {
@@ -283,68 +283,35 @@ export default {
     position: absolute;
     background: var(--semiPrimary-color);
     height: 100vh;
-    /* height: 51vh; */
-  left: -75em;
+    /* left: -75em; */
     z-index: 1;
     top: 3.1em;
     opacity: 0.9;
-    display: block;
-    /* animation: fadeIn 1.5s  ease-out  forwards ; */
-    /* animation: fadeOut 2s  ease-in-out 1s; */
-    animation: fadeOut 1.5s   ease-in-out forwards ;
+    display: none;
+left: -0em;
+    animation: fadeOut 1.5s ease-in-out forwards;
   }
   .navItemss {
-    /* left: -75em; */
-    
-    /* animation: fadeOut 1.5s   ease-in-out forwards ; */
-      animation: fadeIn 1.5s  ease-out  forwards ;
-  }
-  .rect {
-    background: #fff;
+    animation: fadeIn 1.5s ease-out forwards;
   }
   @keyframes fadeIn {
-    5% {
+    0% {
       left: -75em;
     }
     100% {
       left: -0em;
-      display: block;
+    
     }
   }
   @keyframes fadeOut {
-    0%{
-      left: -0em;
+  0% {
+      
+       left: -0em;
     }
-   
-    /* 100% {
-     left: -75em;
-    } */
-  }
-
-
-
-
-
-
-
-
-
-    /* @keyframes fadeIn {
-    5% {
-      left: -75em;
-   } 
-    100% {
-      left: -0em;
-    }
-  }
-  @keyframes fadeOut {
-    0%{
-      left: -0em;
-    }
-   
     100% {
      left: -75em;
+    
     }
-  } */
+  }
 }
 </style>

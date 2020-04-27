@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// import axios from 'axios'
 const state = {
 	ShoppingLists: []
 };
@@ -19,10 +18,13 @@ const actions = {
 		const response = await axios.get(`http://localhost:2000/api/routes/ShoppingList/${id}`);
 		commit('setShoppinglist', response.data);
 	},
-	async addShoppingList({ commit },name) {
-		const response = await axios.post(`http://localhost:2000/api/routes/ShoppingList`, {name, isCompleted:false});
+	async addShoppingList({ commit }, name) {
+		const response = await axios.post(`http://localhost:2000/api/routes/ShoppingList`, {
+			name,
+			isCompleted: false
+		});
 		commit('addShoppinglist', response.data);
-		console.log(response.data)
+		// console.log(response.data);
 	},
 	async deletedShoppingList({ commit }, _id) {
 		await axios.delete(`http://localhost:2000/api/routes/ShoppingList/${_id}`);
@@ -32,8 +34,9 @@ const actions = {
 const mutations = {
 	setShoppinglists: (state, payLoad) => (state.ShoppingLists = payLoad),
 	setShoppinglist: (payLoad) => payLoad,
-	deleteShoppinglist: (state, _id) => (state.ShoppingLists = state.ShoppingLists.filter((ShoppingList) => ShoppingList._id !== _id)),
-	addShoppinglist:(state,payLoad) =>  [ payLoad, ...state.ShoppingLists ]
+	deleteShoppinglist: (state, _id) =>
+		(state.ShoppingLists = state.ShoppingLists.filter((ShoppingList) => ShoppingList._id !== _id)),
+	addShoppinglist: (state, payLoad) => (state.ShoppingLists = [ payLoad, ...state.ShoppingLists ])
 };
 
 export default {
