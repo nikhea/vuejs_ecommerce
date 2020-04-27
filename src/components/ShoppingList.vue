@@ -29,7 +29,7 @@
                   <font-awesome-icon class="icon trash" icon="trash" />
                 </button>
 
-                <button>
+                <button disabled>
                   <font-awesome-icon class="icon edit" icon="edit" />
                 </button>
               </div>
@@ -92,7 +92,7 @@ export default {
   text-align: center;
   font-weight: normal;
   color: var(--primary-color);
-  letter-spacing: 1.2px;
+  letter-spacing: 9.2px;
 }
 .link {
   padding: 5px 10px;

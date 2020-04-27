@@ -1,7 +1,8 @@
 <template>
   <div class="img">
     <div class="img__text">
-      <h3>Welcome To The Laptops Store</h3>
+      <!-- <h3>Welcome To The Laptops Store</h3> -->
+      <h3>Welcome To FortuneTech</h3>
       <!-- <p>Your one stop shop for all types of laptops</p> -->
       <p>Your one stop shop for all kinds of electronics</p>
       <router-link to="/" class="link">Shop Now</router-link>
@@ -24,6 +25,7 @@ export default {};
     /* opacity: 0.8; */
       animation: 1.5s fadein 0.4s forwards;
      opacity: 0;
+     z-index: -1;
     
 }
 img{

@@ -36,7 +36,7 @@ const mutations = {
 	setShoppinglist: (payLoad) => payLoad,
 	deleteShoppinglist: (state, _id) =>
 		(state.ShoppingLists = state.ShoppingLists.filter((ShoppingList) => ShoppingList._id !== _id)),
-	addShoppinglist: (state, payLoad) => (state.ShoppingLists = [ payLoad, ...state.ShoppingLists ])
+	addShoppinglist: (state, payLoad) => (state.ShoppingLists = ([ payLoad, ...state.ShoppingLists ]))
 };
 
 export default {

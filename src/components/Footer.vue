@@ -4,13 +4,13 @@
       <div>
         <ul>
           <li>
-            <a href="#">About us</a>
+            <router-link to="/about">About us</router-link>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <router-link to="/blog">Blog</router-link>
           </li>
           <li>
-            <a href="#">contact</a>
+            <router-link to="/contact">Contact</router-link>
           </li>
           <li>
             <a href="#">Press</a>
@@ -41,12 +41,20 @@
         </li>
         <li>
           <a href="#">what's App</a>
-        </li> -->
-        <li><a href="#"><img src="../assets/img/Group 3.svg" alt="my "></a></li>
+        </li>-->
+        <li>
+          <a href="#">
+            <img src="../assets/img/Group 3.svg" alt="my " />
+          </a>
+        </li>
       </ul>
     </div>
     <div class="row container footer__copy">
-      <p>copyright &COPY; 2020 by laptops store. <span class="footer__span"> All rights reserved.</span></p>
+      <!-- <p>copyright &COPY; 2020 by laptops store. <span class="footer__span"> All rights reserved.</span></p> -->
+      <p>
+        copyright &COPY; 2020 by FortuneTech.
+        <span class="footer__span">All rights reserved.</span>
+      </p>
     </div>
   </footer>
 </template>
@@ -115,7 +123,7 @@ input {
   font-size: 16px;
 }
 button {
-  border: 1px solid   var(--semiPrimary-color);
+  border: 1px solid var(--semiPrimary-color);
   margin: 0 10px;
   padding: 5px 10px;
   /* background: orange */
@@ -123,31 +131,31 @@ button {
   background: none;
 }
 button:hover {
-   background: var(--semiPrimary-color);
+  background: var(--semiPrimary-color);
   color: #fff;
 }
-img{
+img {
   width: 250%;
-  color: #fff
+  color: #fff;
 }
 
-img:hover{
+img:hover {
   /* background-color: #d88f08 */
 }
 @media screen and (max-width: 674px) {
-  footer{
+  footer {
     /* text-align: center */
-     font-size: 80%;
+    font-size: 80%;
   }
   ul {
-  font-size: 80%;
-  padding: 0 0em;
-}
- li {
-  padding: 0 0.3em; 
+    font-size: 80%;
+    padding: 0 0em;
+  }
+  li {
+    padding: 0 0.3em;
 
-  padding-bottom: 2em; 
-}
+    padding-bottom: 2em;
+  }
   .footer-nav {
     grid-column: 2/9;
   }
@@ -156,13 +164,12 @@ img:hover{
   }
   .footer__copy {
     grid-column: 2/9;
-    font-size: 85%
+    font-size: 85%;
   }
 
-img{
-  width: 150%;
-  color: #fff
-}
-
+  img {
+    width: 150%;
+    color: #fff;
+  }
 }
 </style>
