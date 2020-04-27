@@ -2,7 +2,8 @@
   <div class="img">
     <div class="img__text">
       <h3>Welcome To The Laptops Store</h3>
-      <p>Your one stop shop for all types of laptops</p>
+      <!-- <p>Your one stop shop for all types of laptops</p> -->
+      <p>Your one stop shop for all kinds of electronics</p>
       <router-link to="/" class="link">Shop Now</router-link>
     </div>
   </div>

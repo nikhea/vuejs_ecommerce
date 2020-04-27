@@ -4,15 +4,15 @@
 
     <Landing />
     <div class="padding">
-      <p>since 1997, the soucre of good and qualitiy laptops</p>
+      <!-- <p>since 1997, the soucre of good and qualitiy laptops</p> -->
+      <p>since 1997, the soucre of good and qualitiy electronics</p>
     </div>
 
     <Cards />
     <div class="search__product container">
       <input type="text" v-model="searchProduct" placeholder="Search for  Product" />
-     
     </div>
-   
+
     <div class="container products">
       <div class="product" v-for="product in filterProducts" :key="product.id">
         <div class="card">
@@ -26,7 +26,6 @@
             <a class="product__add" @click="addToCart(product._id)">Add To Cart</a>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -147,7 +146,6 @@ a {
   margin-right: 20em;
   width: 100vh;
   /* margin-top: 4em; */
-  
 }
 .search__product > input {
   width: 40vw;
